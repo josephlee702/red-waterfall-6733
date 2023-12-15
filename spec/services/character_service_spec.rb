@@ -19,10 +19,21 @@ RSpec.describe CharacterService do
     end
 
     context 'characters of nation' do
-      scenario 'returns all fire nation characteres', :vcr do
-        response = CharacterService.characters_of_nation("fire+nation")
+      scenario 'returns all characteres of a nation', :vcr do
+        fire = "fire+nation"
+        water = "water+tribe"
+        earth = "earth+kingdom"
+        air = "air+nomads"
 
-        expect(response.count).to eq(97)
+        response1 = CharacterService.characters_of_nation(fire)
+        response2 = CharacterService.characters_of_nation(water)
+        response3 = CharacterService.characters_of_nation(earth)
+        response4 = CharacterService.characters_of_nation(air)
+
+        expect(response1.count).to eq(97)
+        expect(response2.count).to eq(44)
+        expect(response3.count).to eq(76)
+        expect(response4.count).to eq(15)
       end
     end
   end
