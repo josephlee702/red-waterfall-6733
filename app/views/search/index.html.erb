@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#characters {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 90%;
+}
+
+#characters td, #characters th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#characters tr:nth-child(even){background-color: #f2f2f2;}
+
+#characters tr:hover {background-color: #ddd;}
+
+#characters th {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  background-color: #04AA6D;
+  color: white;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+</style>
+</head>
+
+<body>
+<h1><u> <%= params[:nation].split('+').map(&:capitalize).join(' ') %> </u></h1>
+Count of characters: <%= @characters.count %>
+<table id="characters">
+  <tr>
+    <th>Name</th>
+    <th>Affiliation</th>
+    <th>Allies</th>
+    <th>Enemies</th>
+  </tr>
+    <% @characters.each do |character| %>
+    <tr>
+      <td> 
+      <% if character.photourl.present? %>
+        <%= image_tag character.photourl %>
+      <% end %>
+      <div class= "center">
+      <%= link_to character.name, "/characters/#{character.id}" %>
+      </div>
+      </td>
+      <td> <%= character.affiliation %></td>
+      <td> <%= character.allies %> </td>
+      <td> <%= character.enemies %></td>
+    </tr>
+    <% end %>
+</table>
+</body>
+</html>
+
