@@ -6,5 +6,6 @@ RSpec.describe '/search index page', type: :feature do
 
     expect(page).to have_content("Fire Nation")
     expect(page).to have_content("Count of characters: 97")
+    #how do I write a line to count the number of objects in my table...?
   end
 end

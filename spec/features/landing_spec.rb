@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'landing page', type: :feature do
   scenario 'redirects me to /search click fire nation and search for members', :vcr do
-    visit '/'
+    visit root_path
 
     select 'Fire Nation', from: "nation"
     click_button("Search For Members")
