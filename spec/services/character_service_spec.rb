@@ -20,7 +20,7 @@ RSpec.describe CharacterService do
 
     context 'characters of nation' do
       scenario 'returns all fire nation characteres', :vcr do
-        response = CharacterService.get_url("https://last-airbender-api.fly.dev/api/v1/characters?affiliation=Fire+Nation&perPage=100")
+        response = CharacterService.characters_of_nation("fire+nation")
 
         expect(response.count).to eq(97)
       end
