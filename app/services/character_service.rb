@@ -9,6 +9,6 @@ class CharacterService
   end
 
   def self.characters_of_nation(nation)
-    get_url("/api/v1/characters?affiliation=#{nation}")
+    get_url("/api/v1/characters?affiliation=#{nation}&perPage=100")
   end
 end

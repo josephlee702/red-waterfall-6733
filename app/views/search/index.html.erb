@@ -35,7 +35,7 @@
 
 <body>
 <h1><u> <%= params[:nation].split('+').map(&:capitalize).join(' ') %> </u></h1>
-Count of characters: <%= @characters.count %>
+Count of characters: <%= @total_characters.count %>
 <table id="characters">
   <tr>
     <th>Name</th>
@@ -43,14 +43,14 @@ Count of characters: <%= @characters.count %>
     <th>Allies</th>
     <th>Enemies</th>
   </tr>
-    <% @characters.each do |character| %>
+    <% @characters_per_page.each do |character| %>
     <tr>
       <td> 
       <% if character.photourl.present? %>
         <%= image_tag character.photourl %>
       <% end %>
       <div class= "center">
-      <%= link_to character.name, "/characters/#{character.id}" %>
+      <%= character.name %>
       </div>
       </td>
       <td> <%= character.affiliation %></td>

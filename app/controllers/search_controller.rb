@@ -1,5 +1,6 @@
 class SearchController < ApplicationController
   def index
-    @characters = CharacterFacade.characters_of_nation(params[:nation])
+    @total_characters = CharacterFacade.characters_of_nation(params[:nation])
+    @characters_per_page = @total_characters.take(25)
   end
 end
